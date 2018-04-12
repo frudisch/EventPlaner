@@ -1,0 +1,12 @@
+<div>
+  {{#each entries as |entry|}}
+    <div style="border:1px solid black; padding:5px;">
+      <p>Event Name: {{entry.name}}</p>
+      <p>Status: {{entry.status}}</p>
+      <p>Description: {{entry.description}}</p>
+      <p>Datum: {{entry.date}}</p>
+      {{#link-to 'events.show' (query-params name=entry.name) tagName='button'}} Go elsewhere{{/link-to}}
+    </div>
+    <br />
+  {{/each}}
+</div>

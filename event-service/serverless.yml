@@ -1,0 +1,55 @@
+# Welcome to Serverless!
+#
+# For full config options, check the kubeless plugin docs:
+#    https://github.com/serverless/serverless-kubeless
+#
+# For documentation on kubeless itself:
+#    http://kubeless.io
+
+# Update the service name below with your own service name
+service: event-service
+
+# Please ensure the serverless-kubeless provider plugin is installed globally.
+# $ npm install -g serverless-kubeless
+#
+# ...before installing project dependencies to register this provider.
+# $ npm install
+
+provider:
+  name: kubeless
+  runtime: nodejs6
+
+plugins:
+  - serverless-kubeless
+
+functions:
+  list-events:
+    handler: index.list
+    events:
+      - http:
+          path: /event/list
+          method: get
+  get-event:
+    handler: index.get
+    events:
+      - http:
+          path: /event/get
+          method: get
+  update-event:
+    handler: index.update
+    events:
+      - http:
+          path: /event/update
+          method: put
+  delete-event:
+    handler: index.delete
+    events:
+      - http:
+          path: /event/delete
+          method: delete
+  create-event:
+    handler: index.create
+    events:
+      - http:
+          path: /event/create
+          method: post
